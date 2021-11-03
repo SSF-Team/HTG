@@ -11,13 +11,14 @@ import lombok.Data;
 @Data
 public class User {
     private Integer user_id;
-    private String user_name;
-    private String user_gender;
-    private String user_profile;
+    //姓
+    private String user_last_name;
+    //名
+    private String user_first_name;
     private String user_email;
     private String user_password;
     private String user_phone;
-    private Integer user_point;
-    private String user_token;
-    private String user_dtime;
+    private String user_session;
+    private String user_died_session;
+
 }
