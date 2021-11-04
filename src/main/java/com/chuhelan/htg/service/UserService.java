@@ -9,4 +9,6 @@ import com.chuhelan.htg.beans.User;
  */
 public interface UserService {
     int register_user_by_userinfo(User u);
+    String login_user_by_mail(String mail, String password);
+    boolean verify_token_by_id(int id, String token);
 }

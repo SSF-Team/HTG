@@ -2,6 +2,8 @@ package com.chuhelan.htg.beans;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author chuhelan
  * @version 1.0
@@ -19,6 +21,6 @@ public class User {
     private String user_password;
     private String user_phone;
     private String user_session;
-    private String user_died_session;
+    private Date user_died_session;
 
 }

@@ -8,5 +8,17 @@
         insert into htg_user (user_last_name, user_first_name, user_email, user_password, user_phone)
         values (#{user_last_name}, #{user_first_name}, #{user_email}, #{user_password}, #{user_phone})
     </insert>
+    <update id="save_user_token_by_id">
+        update htg_user set user_session=#{token} where user_id=#{id}
+    </update>
+    <update id="save_user_token_die_time_by_id">
+        update htg_user set user_died_session=#{date} where user_id=#{id}
+    </update>
+    <select id="get_userinfo_by_mail" resultType="com.chuhelan.htg.beans.User">
+        select * from htg_user where user_email=#{user_mail}
+    </select>
+    <select id="get_all_user" resultType="com.chuhelan.htg.beans.User">
+        select * from htg_user
+    </select>
 
 </mapper> 
