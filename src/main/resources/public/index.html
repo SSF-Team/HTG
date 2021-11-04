@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/title_logo.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!--  小贴士，你知道吗：CSS似乎恒重要。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DHL</title>
+</head>
+<body>
+<header class="header" id="beginning">
+    <div class="header_top">
+        <div class="container">
+            <div class="row ">
+                <div class="col-1 justify-content-center">
+                    <select name="lang" id="lang" class="header_select" onchange="top.location=this.value">
+                        <option value="index.html">简体中文</option>
+                        <option value="#">繁体中文</option>
+                        <option value="#">英语</option>
+                        <!-- <span> &or;</span> -->
+                    </select>
+                </div>
+
+                <div class="col-11">
+                    <div class="info d-flex float-right">
+                        <div class="con_cen">
+                            <a href="#about_inf">
+                                <img src="img/hum.png" alt="human" width=18px height=15px>
+                                支持
+                            </a>
+                        </div>
+                        <div class="country">
+                            <select name="country" id="contr" class="header_select">
+                                <option value="profile">选择国家</option>
+                                <option value="num_1">中国大陆</option>
+                                <option value="num_2">港澳台</option>
+                                <option value="num_2">日本</option>
+                                <option value="num_2">新加坡</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a href="#beginning">
+                            <img src="img/htg.svg" alt="logo_dhl" style="height: 45px;width: 120px">
+                        </a>
+                        <div class="search_field center_s_f">
+                            <img src="img/lens.png" alt="lens">
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="menu navbar-nav d-flex justify-content-center">
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#express_inf">查件</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#parcel_inf">寄件服务 & 电子商务</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#mail_inf">后勤</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#logistics_inf">邮件</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#learn_inf">Pro</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#about_inf">关于</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="search_field right_s_f">
+                            <img src="img/lens.png" alt="lens">
+                        </div>
+                    </nav>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="half_red_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="deliver" id="express_inf">风雨无阻，<br> 使命安然所至</h1>
+                        <img src="img/about_yellow_line.png" alt="yellow line">
+                        <p class="about_text">HTG公司在全球184个国家和地区设立了1350多个办事处，拥有全球最庞大、最完善、最可靠的航空快递服务网络。HTG公司雇有15 000多名训练有素的专职人员，用自己的飞机及其他175家航空公司的飞机，确保用户的快件每次都能及时准确地递达。</p>
+                        <p class="about_spacing">快马加鞭 <span class="about_point">.</span> 速者必达 <span
+                                class="about_point">.</span> 7*24小时服务</p>
+                        <div class="buttons d-flex">
+                            <a href="#learn_inf" class="about_button_learn red about_buttons_familiar">了解更多</a>
+                            <a href="#worldwide_inf" class="about_button_worlwide about_buttons_familiar">
+                                HTG 全球服务</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="awesome" class="awesome">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="awesome_back" id="parcel_inf">服务</p>
+                <h2 class="awesome_title red">我们很专业</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 ">
+                <div class="awesome_services">
+                    <img src="img/awesome_1.jpg" alt="awesome_services" class="awesome_img img-fluid">
+                    <h3 class="mini_titles red">快件服务</h3>
+                    <p class="mini_text">When an unknown printer took a galley of type and scrambled it to make a type
+                        specimen.</p>
+                    <a href="#" class="mini_links">了解更多<span class="red">&#9658;</span></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 ">
+                <div class="awesome_services">
+                    <img src="img/awesome_2.jpg" alt="awesome_services" class="awesome_img img-fluid">
+                    <h3 class="mini_titles red">寄件服务</h3>
+                    <p class="mini_text">When an unknown printer took a galley of type and scrambled it to make a type
+                        specimen.</p>
+                    <a href="#" class="mini_links">了解更多<span class="red">&#9658;</span></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 ">
+                <div class="awesome_services">
+                    <img src="img/awesome_3.jpg" alt="awesome_services" class="awesome_img img-fluid">
+                    <h3 class="mini_titles red">货运</h3>
+                    <p class="mini_text">When an unknown printer took a galley of type and scrambled it to make a type
+                        specimen.</p>
+                    <a href="#" class="mini_links">了解更多 <span class="red">&#9658;</span></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="awesome_services worldwide" id="worldwide_inf text-center">
+                    <h3 class="worldwide_title">HTG 全球快运服务</h3>
+                    <img src="img/awesome_yellow_line.png" alt="yellow line">
+                    <p class="worldwide_text">When an unknown prot printer type and scra</p>
+                    <select name="lang" id="lang" class="header_select worldwide_sel worldwide_sel_bg">
+                        <option value="eng">选择到达位置</option>
+                        <option value="cn">中国大陆</option>
+                        <option value="hk">港澳台</option>
+                        <option value=usa>美国</option>
+                        <option value="sp">西班牙</option>
+                    </select>
+                    <a href="#mail_inf" class="about_button_learn red about_buttons_familiar">浏览</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="provider" class="provider">
+    <div class="provider_bg" id="mail_inf">
+        <div class="provider_gradient">
+            <h2 class="provider_title">
+                我们眼中东半球最好的物流公司
+            </h2>
+            <div class="container">
+                <div class="provider_play">
+                    <span class="red">&#9658;</span>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12 col-sm">
+                        <img src="img/best_1.png" alt="best_deliever" class="best_img img-fluid">
+                        <div class="best_info best_shadow">
+                            <h4 class="best_info_title red">Aerospace Provider</h4>
+                            <ul class="best_info_list">
+                                <li><span class="list_arrow">&#9658;</span>When an unknown printer took.</li>
+                                <li><span class="list_arrow">&#9658;</span>Make a type specimen book.</li>
+                                <li><span class="list_arrow">&#9658;</span>It has survived.</li>
+                                <li><span class="list_arrow">&#9658;</span>Airlines unknown specimen.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm">
+                        <img src="img/best_2.png" alt="best_deliever" class="best_img img-fluid">
+                        <div class="best_info best_shadow">
+                            <h4 class="best_info_title red">Poppins Proved</h4>
+                            <ul class="best_info_list">
+                                <li><span class="list_arrow">&#9658;</span>When an unknown printer took.</li>
+                                <li><span class="list_arrow">&#9658;</span>Make a type specimen book.</li>
+                                <li><span class="list_arrow">&#9658;</span>It has survived.</li>
+                                <li><span class="list_arrow">&#9658;</span>Airlines unknown specimen.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm ">
+                        <img src="img/best_3.png" alt="best_deliever" class="best_img img-fluid">
+                        <div class="best_info best_shadow">
+                            <h4 class="best_info_title red">Airline Specimen</h4>
+                            <ul class="best_info_list">
+                                <li><span class="list_arrow">&#9658;</span>When an unknown printer took.</li>
+                                <li><span class="list_arrow">&#9658;</span>Make a type specimen book.</li>
+                                <li><span class="list_arrow">&#9658;</span>It has survived.</li>
+                                <li><span class="list_arrow">&#9658;</span>Airlines unknown specimen.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="men_and_form">
+    <div class="container">
+        <div class="row text-center" id="logistics_inf">
+            <div class="col">
+                <div class="block_form">
+                    <label title="express" class="form_label1">express</label>
+                    <label title="logistics" class="form_label2 float-right">logistics</label>
+                    <form class="form-tab express_form" id="express">
+                        <select name="shipment" id="shipment" class="shipment_select form_selects">
+                            <option value="eng">Track your shipment</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                        <select name="login" id="login" class="login_select form_selects">
+                            <option value="eng">New login</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                        <select name="point" id="point" class="point_select form_selects">
+                            <option value="eng">Find dhl point</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                        <select name="service" id="service" class="service_select form_selects">
+                            <option value="eng">Find a service</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                    </form>
+                    <form class="form-tab logistics_form del" id="logistics">
+                        <select name="shipment" id="shipment" class="shipment_select form_selects">
+                            <option value="eng">Track your logistics</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                        <select name="login" id="login" class="login_select form_selects">
+                            <option value="eng">New logistics</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                        <select name="service" id="service" class="service_select form_selects">
+                            <option value="eng">Find a logistics</option>
+                            <option value="ru">Russian</option>
+                            <option value="ua">Ukrainian</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+                <div class="dhl_photo_border">
+                    <div class="dhl_photo_men">
+                        <img src="img/men_overley2.png" alt="men_overley">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="simply_bg" id="learn_inf">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-7 simply_div_marg">
+                    <h3 class="simply">Excellence. Simply delivered.</h3>
+                    <p class="simply_text">International express deliveries; global freight forwarding by air, sea, road
+                        and rail;
+                        warehousing solutions from packaging, to repairs, to storage; mail deliveries worldwide;
+                        and other customized logistic services – with everything DHL does, we
+                        help connect people and improve their lives. </p>
+                    <p class="simply_text hidden_p del">International express deliveries; global freight forwarding by
+                        air, sea, road and rail;
+                        warehousing solutions from packaging, to repairs, to storage; mail deliveries worldwide;
+                        and other customized logistic services – with everything DHL does, we
+                        help connect people and improve their lives. </p>
+                    <p class="simply_text hidden_p del">International express deliveries; global freight forwarding by
+                        air, sea, road and rail;
+                        warehousing solutions from packaging, to repairs, to storage; mail deliveries worldwide;
+                        and other customized logistic services – with everything DHL does, we
+                        help connect people and improve their lives. </p>
+                </div>
+                <div class="col-12 col-md-4 col-lg-5 d-flex justify-content-center my-auto">
+                    <span class="about_buttons_familiar simply_button float-right">Learn More</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="imgs">
+        <div class="container" id="about_inf">
+            <div class="row text-center row_padd">
+                <div class="col-6 col-lg-3 ">
+                    <a href="https://themeforest.net/" target="_blank"><img src="img/themeforest2.png" alt="themeforest"
+                                                                            class="icons_img icons_img_marg img-fluid"></a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a href="#"><img src="img/photodune2.png" alt="photodune"
+                                     class="icons_img icons_img_marg img-fluid"></a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a href="#"><img src="img/graphicriver2.png" alt="graphicriver"
+                                     class="icons_img icons_img_marg img-fluid"></a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a href="#"><img src="img/codecanyon2.png" alt="codecanyon" class="icons_img img-fluid"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 col-xl-3 footer_img_padd">
+                <img src="img/dhl_left.png " alt="dhl_left" class="dhl_left img-fluid">
+            </div>
+            <div class="col-4 col-xl-2 footer_img_padd">
+                <h4 class="footer_titles red">Contact center</h4>
+                <ul class="footer_list">
+                    <li><span class="red">&#9658;</span><a href="#">DHL Express</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">DHL Parcel & eCommerce</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">DHL Global Forwarding</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">DHL Freight</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">DHL Supply Chain</a></li>
+                </ul>
+            </div>
+            <div class="col-3 col-xl-2 footer_img_padd">
+                <h4 class="footer_titles red">About us</h4>
+                <ul class="footer_list">
+                    <li><span class="red">&#9658;</span><a href="#">Partnerships</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">Company Portrait</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">DHL Global Forwarding</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">Green solutions</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">Innovation</a></li>
+                </ul>
+            </div>
+            <div class="col-3 col-xl-2 footer_img_padd">
+                <h4 class="footer_titles red">Social media</h4>
+                <ul class="footer_list social_hover">
+                    <li><span class="red">&#9658;</span><a href="#">Facebook</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">dribbble</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">behance</a></li>
+                    <li><span class="red">&#9658;</span><a href="#">gmail </a></li>
+                    <li><span class="red">&#9658;</span><a href="#">twitter</a></li>
+                </ul>
+            </div>
+            <div class="col-1 col-xl-3 footer_img_padd text-right">
+                <img src="img/dhl_right.png" alt="dhl_right" class="dhl_right img-fluid">
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="modal2">
+    <div class="modal2_overlay">
+        <div class="modal2_body">
+            <iframe class="dhl_video" width="950" height="580" src="https://www.youtube.com/embed/_Sn30iYFgFw"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+[Sun Nov 03 2019 15:50:46 GMT+0200 (Финляндия (зима))] layer "bg.png": Duplicate path: bg.png
+[Sun Nov 03 2019 15:50:46 GMT+0200 (Финляндия (зима))] layer "placeholder.png": Duplicate path: placeholder.png
