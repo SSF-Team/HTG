@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chuhelan.htg.dao.TextDao">
+
+    <select id="get_vip_adv_list">
+        select * from htg_vip_discont
+    </select>
+    <select id="get_vip_title_list" resultType="string">
+        select title_content from htg_vip_title
+    </select>
+
+</mapper>

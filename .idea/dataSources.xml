@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="htg@tools.chuhelan.com" uuid="23d2d33c-3378-4640-bbf6-34f47986e18e">
+    <data-source source="LOCAL" name="htg@tools.chuhelan.com" uuid="4b4fd8a8-63a1-43e2-8e32-47c865dae8ec">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://tools.chuhelan.com:3306/htg</jdbc-url>
+      <jdbc-url>jdbc:mysql://tools.chuhelan.com:3306/htg?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

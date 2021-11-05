@@ -24,6 +24,9 @@ $(function () {
 		return false;
 	});
 
+	$(".search_field").click(function (){
+	});
+
 
 	// grab the initial top offset of the navigation 
 	   	var stickyNavTop = $('.header_menu').offset().top;
@@ -102,9 +105,6 @@ $(function () {
     	$(".simply_button").text("HIDE");
 	}
 	});
-
-
 })
-
 
 

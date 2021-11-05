@@ -71,4 +71,9 @@ public class UserServiceImpl implements UserService {
         //验证 token
         return info.getUser_session().equals(token) && new Date().before(info.getUser_died_session());
     }
+
+    @Override
+    public User get_user_by_mail(String mail) {
+        return userDao.get_userinfo_by_mail(mail);
+    }
 }

@@ -75,13 +75,13 @@
                                     <a class="nav-link" href="#mail_inf">后勤</a>
                                 </li>
                                 <li class="nav-item menu_item">
-                                    <a class="nav-link" href="#logistics_inf">邮件</a>
-                                </li>
-                                <li class="nav-item menu_item">
                                     <a class="nav-link" href="#learn_inf">Pro</a>
                                 </li>
                                 <li class="nav-item menu_item">
                                     <a class="nav-link" href="#about_inf">关于</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link" href="#logistics_inf">登录</a>
                                 </li>
                             </ul>
                         </div>
@@ -229,46 +229,18 @@
         <div class="row text-center" id="logistics_inf">
             <div class="col">
                 <div class="block_form">
-                    <label title="express" class="form_label1">express</label>
-                    <label title="logistics" class="form_label2 float-right">logistics</label>
-                    <form class="form-tab express_form" id="express">
-                        <select name="shipment" id="shipment" class="shipment_select form_selects">
-                            <option value="eng">Track your shipment</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
-                        <select name="login" id="login" class="login_select form_selects">
-                            <option value="eng">New login</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
-                        <select name="point" id="point" class="point_select form_selects">
-                            <option value="eng">Find dhl point</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
-                        <select name="service" id="service" class="service_select form_selects">
-                            <option value="eng">Find a service</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
+                    <label title="express" class="form_label1">登录</label>
+                    <label title="logistics" class="form_label2 float-right">注册</label>
+                    <form onsubmit="return false;" class="form-tab express_form" id="express">
+                        <input id="mail" type="email" class="shipment_select form_selects" placeholder="账户邮箱" style="border:2px solid #ffcd00;border-radius: 7px;margin-top: 50px;">
+                        <input id="password" type="password" class="shipment_select form_selects" placeholder="账户密码" style="border:2px solid #ffcd00;border-radius: 7px;">
+                        <button type="submit" class="login_button" onclick="login();">登录</button>
+                        <div id="login_err_msg" class="err_msg" style="visibility: hidden;">
+                            <a id="err_msg_txt">账户不存在</a>
+                        </div>
                     </form>
                     <form class="form-tab logistics_form del" id="logistics">
-                        <select name="shipment" id="shipment" class="shipment_select form_selects">
-                            <option value="eng">Track your logistics</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
-                        <select name="login" id="login" class="login_select form_selects">
-                            <option value="eng">New logistics</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
-                        <select name="service" id="service" class="service_select form_selects">
-                            <option value="eng">Find a logistics</option>
-                            <option value="ru">Russian</option>
-                            <option value="ua">Ukrainian</option>
-                        </select>
+
                     </form>
                 </div>
             </div>
@@ -392,5 +364,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -57,7 +57,7 @@ public class UserController {
             default:
                 if(login_statue.length() > 3) {
                     code = 200;
-                    back = login_statue;
+                    back = login_statue + "|" + userService.get_user_by_mail(mail).getUser_id();
                 }
         }
         return gson.toJson(new BaseMsg(code, back));
