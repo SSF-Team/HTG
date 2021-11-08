@@ -1,0 +1,116 @@
+:root {
+    --color-shader: #dbdbdb;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.main-card {
+    -webkit-box-shadow:0 0 5px var(--color-shader) !important;
+    -moz-box-shadow:0 0 5px var(--color-shader) !important;
+    box-shadow:0 0 5px var(--color-shader) !important;
+
+    margin-top: 30px;
+}
+
+.ui-tabs a {
+    font-size: 0.8rem;
+}
+.ui-tabs ul {
+    background-color: transparent;
+    border: 0;
+    border-bottom: solid #ffcd00;
+}
+.ui-tabs-panel {
+    background-color: #666666 !important;
+}
+.ui-state-active,
+ .ui-widget-content .ui-state-active,
+ .ui-widget-header .ui-state-active,
+ a.ui-button:active,
+ .ui-button:active,
+ .ui-button.ui-state-active:hover {
+     border: 0 !important;
+     background: #ffcd00 !important;
+     color: #000 !important;
+ }
+.ui-widget.ui-widget-content {
+    border: 0 !important;
+}
+.ui-widget-content {
+    color: #fff !important;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button {
+    border: 1px solid #ffcd00 !important;
+    border-radius: 7px 7px 0 0;
+}
+.ui-tabs .ui-tabs-nav li {
+    border: 0 !important;
+}
+
+.tab-1 {
+    width: 70%;
+    float: left;
+}
+.tab-1-side {
+    width: 28%;
+    float: right;
+}
+
+.from-ab {
+    float: left;
+    width: 50px;
+    margin-top: 25px;
+}
+.from-ab i {
+    font-style: normal;
+    border: 3px solid #ffcd00;
+    padding: 5px 8px;
+    border-radius: 100%;
+    font-size: 0.6rem;
+}
+.from-ab div {
+    height: 60px;
+    border-left: 2px dashed #ffcd00;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.from-ab a {
+    background: #ffcd00;
+    padding: 7px 7px;
+    border-radius: 100%;
+    float: left;
+    margin-top: -50px;
+    margin-left: 9px;
+}
+
+.new-order i {
+    font-style: normal;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+.new-order input {
+    width: calc(100% - 70px);
+}
+.new-order button {
+    float: right;
+    margin-top: 20px;
+    height: 40px;
+    width: 90px;
+    background: #ffcd00;
+    border: 0;
+    font-weight: 700;
+}
+
+.card2-1 {
+    width: 70%;
+    float: left;
+}
+.card2-1 {
+    width: 28%;
+    float: right;
+}

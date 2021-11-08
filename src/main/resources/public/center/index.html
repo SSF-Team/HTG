@@ -1,10 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="shortcut icon" href="/img/title_logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style-lc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人中心 - DHL</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/center.css">
+    <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 </head>
 <body>
+<script>
+    $( function() {
+        $( "#tabs" ).tabs();
+    } );
+</script>
+<header class="header" id="beginning">
+    <div class="header_top">
+        <div class="container">
+            <div class="row ">
+                <div class="col-1 justify-content-center">
+                    <select name="lang" id="lang" class="header_select" onchange="top.location=this.value">
+                        <option value="index.html">简体中文</option>
+                        <option value="#">繁体中文</option>
+                        <option value="#">英语</option>
+                        <!-- <span> &or;</span> -->
+                    </select>
+                </div>
 
+                <div class="col-11">
+                    <div class="info d-flex float-right">
+                        <div class="con_cen">
+                            <a href="#about_inf">
+                                <img src="/img/hum.png" alt="human" width=18px height=15px>
+                                支持
+                            </a>
+                        </div>
+                        <div class="country">
+                            <select name="country" id="contr" class="header_select">
+                                <option value="profile">选择国家</option>
+                                <option value="num_1">中国大陆</option>
+                                <option value="num_2">港澳台</option>
+                                <option value="num_2">日本</option>
+                                <option value="num_2">新加坡</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a href="#beginning">
+                            <img src="/img/htg.svg" alt="logo_dhl" style="height: 45px;width: 120px">
+                        </a>
+                        <div class="search_field center_s_f">
+                            <img src="/img/lens.png" alt="lens">
+                        </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="menu navbar-nav d-flex justify-content-center">
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link">主页</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link">发件</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link">查询</a>
+                                </li>
+                                <li class="nav-item menu_item">
+                                    <a class="nav-link">管理快件</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="search_field right_s_f">
+                            <img src="/img/lens.png" alt="lens">
+                        </div>
+                    </nav>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container-lg">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Covid-19 更新</strong> 服务更新和紧急情形附加费 <a>查看更多</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <a class="title">欢迎使用 HTG 用户中心</a>
+    <div class="main-card ss-card card-1">
+        <div id="tabs" class="tab-1">
+            <ul>
+                <li><a href="#tabs-1">创建一个快件</a></li>
+                <li><a href="#tabs-2">从历史快件中创建</a></li>
+                <li><a href="#tabs-3">获取报价</a></li>
+            </ul>
+            <div id="tabs-1" style="padding-top: 40px;">
+                <div class="from-ab">
+                    <i>A</i>
+                    <div></div>
+                    <a></a>
+                    <i>B</i>
+                </div>
+                <div class="new-order">
+                    <i>发件地</i><br>
+                    <input>
+                    <div style="margin-top: 50px;"></div>
+                    <i>收件地</i><br>
+                    <input><br>
+                    <button>下一步</button>
+                </div>
+                <div style="clear: both;display: block;"></div>
+            </div>
+            <div id="tabs-2">
+
+            </div>
+            <div id="tabs-3" style="padding-top: 40px;">
+                <div class="from-ab">
+                    <i>A</i>
+                    <div></div>
+                    <a></a>
+                    <i>B</i>
+                </div>
+                <div class="new-order">
+                    <i>发件地</i><br>
+                    <input>
+                    <div style="margin-top: 50px;"></div>
+                    <i>收件地</i><br>
+                    <input><br>
+                    <button>下一步</button>
+                </div>
+                <div style="clear: both;display: block;"></div>
+            </div>
+        </div>
+        <div class="tab-1-side">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">我的快件</a><br>
+            <a style="font-size: 0.8rem;font-weight: 400;">过去90天的发件记录</a><br>
+            <div>
+                <a>已保存的快件（1）</a><br>
+                <a>查看所有快件</a>
+            </div>
+            <hr>
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">查询</a><br>
+            <textarea style="width: 100%;margin-top: 10px;"></textarea>
+            <button style="float: right;width: 100px;background: transparent;border: 1px solid #000;">查询</button>
+        </div>
+        <div style="clear: both;display: block;"></div>
+    </div>
+    <div class="main-card ss-card card-1">
+        <div class="card2-1">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">未完成快件</a><br>
+        </div>
+        <div class="card2-2">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">预约查询</a><br>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="/js/scripts.js"></script>
 </body>
-</html>
