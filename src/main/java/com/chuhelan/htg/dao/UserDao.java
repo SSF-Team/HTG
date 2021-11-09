@@ -1,6 +1,7 @@
 package com.chuhelan.htg.dao;
 
 import com.chuhelan.htg.beans.User;
+import com.chuhelan.htg.beans.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,8 @@ public interface UserDao {
     User get_userinfo_by_mail(String mail);
     User get_userinfo_by_id(int id);
     User[] get_all_user();
+
+    UserInfo get_user_more_by_id(int id);
 
     int save_user_token_by_id(int id, String token);
     int save_user_token_die_time_by_id(int id, Date date);

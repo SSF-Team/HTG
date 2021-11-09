@@ -23,5 +23,8 @@
     <select id="get_userinfo_by_id" resultType="com.chuhelan.htg.beans.User">
         select * from htg_user where user_id=#{id}
     </select>
+    <select id="get_user_more_by_id" resultType="com.chuhelan.htg.beans.UserInfo">
+        select * from htg_user_info where user_id=#{id}
+    </select>
 
 </mapper> 

@@ -1,11 +1,10 @@
 package com.chuhelan.htg.service.impl;
 
 
-import com.chuhelan.htg.beans.BaseMsg;
 import com.chuhelan.htg.beans.User;
+import com.chuhelan.htg.beans.UserInfo;
 import com.chuhelan.htg.dao.UserDao;
 import com.chuhelan.htg.service.UserService;
-import com.fasterxml.jackson.databind.ser.Serializers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -75,5 +74,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User get_user_by_mail(String mail) {
         return userDao.get_userinfo_by_mail(mail);
+    }
+
+    @Override
+    public User get_user_by_id(int id) {
+        return userDao.get_userinfo_by_id(id);
+    }
+
+    @Override
+    public UserInfo get_userinfo_by_id(int id) {
+        return userDao.get_user_more_by_id(id);
     }
 }

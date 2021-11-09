@@ -1,17 +1,15 @@
 package com.chuhelan.htg.controller;
 
-import com.chuhelan.htg.beans.BaseMsg;
+import com.chuhelan.htg.model.BaseInfo;
+import com.chuhelan.htg.model.BaseMsg;
 import com.chuhelan.htg.beans.User;
+import com.chuhelan.htg.beans.UserInfo;
 import com.chuhelan.htg.service.UserService;
 import com.google.gson.Gson;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author chuhelan
@@ -61,5 +59,31 @@ public class UserController {
                 }
         }
         return gson.toJson(new BaseMsg(code, back));
+    }
+
+    /**
+     * @Author Stapxs
+     * @Description 获取用户基础信息（头像，昵称），无需验证 token
+     * @Date 08:37 2021/11/09
+     * @Param [id]
+     * @return java.lang.String
+    **/
+    @GetMapping("/info/base")
+    public String get_user_base_info(int id) {
+        User user = userService.get_user_by_id(id);
+        UserInfo info = userService.get_userinfo_by_id(id);
+        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name() + " " + user.getUser_last_name());
+        return gson.toJson(base);
+    }
+
+    @PostMapping("/verify")
+    public String verify_user_by_id(int id, String token) {
+        System.out.println("验证登录：" + id + " / " + token);
+        boolean is_pass = userService.verify_token_by_id(id, token);
+        if(is_pass) {
+            return gson.toJson(new BaseMsg(200, "OK"));
+        } else {
+            return gson.toJson(new BaseMsg(302, "ERR"));
+        }
     }
 }

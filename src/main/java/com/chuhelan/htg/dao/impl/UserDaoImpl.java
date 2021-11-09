@@ -1,6 +1,7 @@
 package com.chuhelan.htg.dao.impl;
 
 import com.chuhelan.htg.beans.User;
+import com.chuhelan.htg.beans.UserInfo;
 import com.chuhelan.htg.dao.UserDao;
 
 import java.util.Date;
@@ -29,6 +30,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User[] get_all_user() {
         return new User[0];
+    }
+
+    @Override
+    public UserInfo get_user_more_by_id(int id) {
+        return null;
     }
 
     @Override

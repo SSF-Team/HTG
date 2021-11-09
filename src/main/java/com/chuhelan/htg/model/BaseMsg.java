@@ -1,6 +1,5 @@
-package com.chuhelan.htg.beans;
+package com.chuhelan.htg.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**

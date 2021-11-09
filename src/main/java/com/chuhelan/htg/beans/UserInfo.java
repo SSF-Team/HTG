@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 public class UserInfo {
-    private Integer user_gender;
+    private String user_gender;
     private String user_profile;
     private Integer user_point;
 }

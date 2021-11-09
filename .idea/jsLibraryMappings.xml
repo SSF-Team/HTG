@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{style}" />
+    <file url="PROJECT" libraries="{style}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
   </component>
 </project>

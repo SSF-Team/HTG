@@ -1,6 +1,7 @@
 package com.chuhelan.htg.service;
 
 import com.chuhelan.htg.beans.User;
+import com.chuhelan.htg.beans.UserInfo;
 
 /**
  * @author chuhelan
@@ -12,4 +13,7 @@ public interface UserService {
     String login_user_by_mail(String mail, String password);
     boolean verify_token_by_id(int id, String token);
     User get_user_by_mail(String mail);
+    User get_user_by_id(int id);
+
+    UserInfo get_userinfo_by_id(int id);
 }
