@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style-lc.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>个人中心 - DHL</title>
+    <title>寄件 - 个人中心 - DHL</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/center.css">
     <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
@@ -15,14 +15,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 </head>
 <body>
-<script>
-    $( function() {
-        $( "#tabs" ).tabs();
-    } );
-</script>
 <header class="header" id="beginning">
     <div class="header_top">
         <div class="container">
@@ -99,92 +93,70 @@
         </div>
     </div>
 </header>
-
-
 <div class="container-lg">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Covid-19 更新</strong> 服务更新和紧急情形附加费 <a>查看更多</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="to-bar">
+        <i>创建快件</i>
+        <i>——— 支付</i>
+        <i>——— 打印</i>
+        <button>取消</button>
     </div>
-
-    <a class="title">欢迎使用 HTG 用户中心</a>
-    <div class="main-card ss-card card-0">
-        <div class="card-0-name">
-            <img>
-            <i>User Name</i>
+    <div class="main-card ss-card" style="margin-bottom: 100px;">
+        <div class="alert alert-primary" role="alert">
+            如果你已经拥有 DHL 账户， <a>立即登录</a>
         </div>
-    </div>
-    <div class="main-card ss-card card-1">
-        <div id="tabs" class="tab-1">
-            <ul>
-                <li><a href="#tabs-1">创建一个快件</a></li>
-                <li><a href="#tabs-2">从历史快件中创建</a></li>
-                <li><a href="#tabs-3">获取报价</a></li>
-            </ul>
-            <div id="tabs-1" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <div class="new-order">
-                    <i>发件地</i><br>
-                    <input>
-                    <div style="margin-top: 50px;"></div>
-                    <i>收件地</i><br>
-                    <input><br>
-                    <button>下一步</button>
-                </div>
-                <div style="clear: both;display: block;"></div>
+        <div class="cardse-1">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">发件地</a><br>
+            <div class="new-order create_order">
+                <i>姓名</i><br>
+                <input placeholder="姓名"><br>
+                <i>国家 / 地区</i><br>
+                <input placeholder="China 中华人民共和国"><br>
+                <i>地址</i><br>
+                <input><br>
+                <i>地址1</i><br>
+                <input><br>
+                <i>地址2</i><br>
+                <input><br>
+                <i>邮政编码</i><br>
+                <input><br>
+                <i>电子邮箱</i><br>
+                <input placeholder="我们将向此电子邮件发送快件通知。"><br>
+                <i>电话</i><br>
+                <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);">
+                <br><br>
             </div>
-            <div id="tabs-2">
-
-            </div>
-            <div id="tabs-3" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <div class="new-order">
-                    <i>发件地</i><br>
-                    <input>
-                    <div style="margin-top: 50px;"></div>
-                    <i>收件地</i><br>
-                    <input><br>
-                    <button>下一步</button>
-                </div>
-                <div style="clear: both;display: block;"></div>
-            </div>
+            <a>清空表单</a>
         </div>
-        <div class="tab-1-side">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">我的快件</a><br>
-            <a style="font-size: 0.8rem;font-weight: 400;">过去90天的发件记录</a><br>
-            <div>
-                <a>已保存的快件（1）</a><br>
-                <a>查看所有快件</a>
+        <div class="cardse-2">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">收件地</a><br>
+            <div class="new-order create_order">
+                <i>姓名</i><br>
+                <input placeholder="姓名"><br>
+                <i>国家 / 地区</i><br>
+                <input placeholder="China 中华人民共和国"><br>
+                <i>地址</i><br>
+                <input><br>
+                <i>电子邮箱</i><br>
+                <input placeholder="我们将向此电子邮件发送快件通知。"><br>
+                <i>电话</i><br>
+                <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);">
+                <br><br>
             </div>
-            <hr>
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">查询</a><br>
-            <textarea style="width: 100%;margin-top: 10px;"></textarea>
-            <button style="float: right;width: 100px;background: transparent;border: 1px solid #000;">查询</button>
+            <a>清空表单</a><br>
+            <a>添加联系人</a>
+        </div>
+        <div style="clear: both;display: block;"></div>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+            <strong>重要</strong> 自 10 月 25 日起，由于 Covid-19 导致的人员调度，取件暂时限制为每次取件/每天 100 公斤，直至另行通知。
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="new-order">
+            <button type="submit">下一步</button>
         </div>
         <div style="clear: both;display: block;"></div>
     </div>
-    <div class="main-card ss-card card-1">
-        <div class="card2-1">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">未完成快件</a><br>
-        </div>
-        <div class="card2-2">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">预约查询</a><br>
-        </div>
-        <div style="clear: both;display: block;"></div>
-    </div>
-
 </div>
 
 
