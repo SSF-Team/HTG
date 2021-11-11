@@ -1,0 +1,126 @@
+package com.chuhelan.htg.controller;
+
+import com.chuhelan.htg.beans.Order;
+import com.chuhelan.htg.model.BaseMsg;
+import com.chuhelan.htg.model.OrderCost;
+import com.chuhelan.htg.service.OrderService;
+import com.chuhelan.htg.service.UserService;
+import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Optional;
+
+/**
+ * @Version: 1.0
+ * @Date: 2021/11/11 09:04
+ * @ClassName: OrderController
+ * @Author: Stapxs
+ * @Description TO DO
+ **/
+
+@RestController
+public class OrderController {
+
+    Gson gson = new Gson();
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    OrderService orderService;
+
+    @PostMapping("/order/new")
+    public String set_new_order(int user_id, String token,
+                                String data_1, String data_2, String other_set) {
+        // 验证登录
+        boolean login = userService.verify_token_by_id(user_id, token);
+        if(login) {
+            // 整理数据（顺便验证数据合法性）
+            /* data 的结构
+            *   0姓名 / 1国家 / 2地址 / 3电子邮箱 / 4电话
+            */
+            /* outher_set 为附加参数，暂时没用
+             *   乱写点什么东西不然空着行不好看
+             */
+            String[] info1 = data_1.split("/");
+            String[] info2 = data_2.split("/");
+            System.out.println(data_1);
+            if(info1.length == 5 && info2.length == 5) {
+                // 生成订单号
+                StringBuilder order_id = new StringBuilder("HTG");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+                order_id.append(sdf.format(new Date()));
+                Order[] orders = orderService.get_orders_today();
+                order_id.append(String.format("%03d", orders == null?0:orders.length + 1));
+                order_id.append("A");
+                // 创建订单
+                Order new_order = new Order();
+                new_order.setOrder_id(order_id.toString());
+                new_order.setOrder_user_id(user_id);
+                new_order.setOrder_create_date(new Date());
+                /* 0姓名 / 1国家 / 2地址 / 3电子邮箱 / 4电话 */
+                new_order.setOrder_name(info1[0] + "/" + info2[0]);
+                new_order.setOrder_country(info1[1] + "/" + info2[1]);
+                new_order.setOrder_address(info1[2] + "/" + info2[2]);
+                new_order.setOrder_email(info1[3] + "/" + info2[3]);
+                new_order.setOrder_phone(info1[4] + "/" + info2[4]);
+                // 写入数据库
+                orderService.save_order(new_order);
+                // 返回订单信息用于下一步操作
+                //（TODO 记得下一步是确认订单 - 付钱）
+                return gson.toJson(new BaseMsg(200, new_order.getOrder_id()));
+            }
+            return gson.toJson(new BaseMsg(403, "参数错误！"));
+        }
+        return gson.toJson(new BaseMsg(403, "验证登录失败！"));
+    }
+
+    @GetMapping("/order/get/{id}")
+    public String get_order(@PathVariable String id) {
+        Order order = orderService.get_order_by_id(id);
+        if(order != null) {
+            return gson.toJson(order);
+        } else {
+            return gson.toJson(new BaseMsg(404, "运单不存在！"));
+        }
+    }
+
+    @GetMapping("/order/user/{id}")
+    public String get_orders_by_id(@PathVariable int id) {
+        String[] orders = orderService.get_orders_id_by_user_id(id);
+        return gson.toJson(orders);
+    }
+
+    /*
+     * @Author Stapxs
+     * @Description 获取两点的距离和费用
+     * @Date 14:00 2021/11/11
+     * @Param []
+     * @return java.lang.String
+    **/
+    @GetMapping("/order/cost/{start}/{end}")
+    public String get_address_way(@PathVariable String end, @PathVariable String start) {
+        // 构建类
+        OrderCost info = new OrderCost();
+        info.setStart(start);
+        info.setEnd(end);
+        // 获取距离
+        double distance = orderService.calc_distance(start, end);
+        info.setDistance(distance);
+        // 计算费用
+        double cost = Math.round(distance) * 2 + Math.round(distance) * 0.2;
+        info.setCost(cost);
+        return gson.toJson(info);
+    }
+}

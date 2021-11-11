@@ -24,11 +24,11 @@ if(save.indexOf("&") > 0) {
             console.log("登录验证：" + httpRequest.responseText)
             if(httpRequest.responseText.indexOf("200") <= 0) {
                 // 跳回主页登录区域
-                window.location.replace("/#logistics_inf?type=login_fail");
+                window.location.replace("/#logistics_inf?type=login_fail")
             }
         }
     };
 } else {
     // 跳回主页登录区域
-    window.location.replace("/#logistics_inf?type=no_login");
+    window.location.replace("/#logistics_inf?type=no_login")
 }
