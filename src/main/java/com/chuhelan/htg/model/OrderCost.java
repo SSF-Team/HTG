@@ -17,4 +17,6 @@ public class OrderCost {
     String end;
     double distance;
     double cost;
+    double[] startPoint;
+    double[] endPoint;
 }

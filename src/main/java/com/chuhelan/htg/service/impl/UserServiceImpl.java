@@ -8,10 +8,7 @@ import com.chuhelan.htg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author chuhelan
@@ -65,6 +62,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean verify_token_by_id(int id, String token) {
+        System.out.println("操作 > verify_token_by_id > 验证登陆 > " + id + " / " + token);
         // 获取用户信息
         User info = userDao.get_userinfo_by_id(id);
         //验证 token

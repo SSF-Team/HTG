@@ -27,4 +27,5 @@ public class Order {
     String order_address;
     String order_email;
     String order_phone;
+    String order_status;
 }

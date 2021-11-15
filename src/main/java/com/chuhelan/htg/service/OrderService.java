@@ -12,5 +12,5 @@ public interface OrderService {
 
     int save_order(Order order);
 
-    double calc_distance(String way1, String way2);
+    double[] calc_distance(String way1, String way2);
 }

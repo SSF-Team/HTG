@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public double calc_distance(String way1, String way2) {
+    public double[] calc_distance(String way1, String way2) {
         // 计算距离
         System.out.println("操作 > createOrder > 计算订单距离 > " + way1 + " / " + way2);
         String[][] info = new String[][]{
@@ -64,7 +64,6 @@ public class OrderServiceImpl implements OrderService {
                 new String[]{"output", "json"},
                 new String[]{"ak", "62WAvGClEExBObY1zU4ZuMMEYxVRmWdF"}
         };
-        System.out.println(get);
         get = http.result("http://api.map.baidu.com/geocoding/v3/", info);
         String[] endPoint = new String[]{
                 get.substring(get.indexOf("\"lng\":") + 6, get.indexOf(",\"lat\":")),
@@ -77,6 +76,12 @@ public class OrderServiceImpl implements OrderService {
         double distance = Math.sqrt(all);
 
         System.out.println("操作 > createOrder > 计算订单距离 > " + distance);
-        return Math.round(distance);
+        return new double[] {
+                Math.round(distance),
+                Double.parseDouble(startPoint[0]),
+                Double.parseDouble(startPoint[1]),
+                Double.parseDouble(endPoint[0]),
+                Double.parseDouble(endPoint[1])
+        };
     }
 }

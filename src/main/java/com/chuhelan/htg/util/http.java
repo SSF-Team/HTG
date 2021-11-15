@@ -55,7 +55,6 @@ public class http {
             bufferedReader.close();
             inputStreamReader.close();
             inputStream.close();
-            inputStream = null;
             //断开连接
             httpUrlConn.disconnect();
 

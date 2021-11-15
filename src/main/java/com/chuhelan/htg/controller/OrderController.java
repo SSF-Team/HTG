@@ -87,9 +87,41 @@ public class OrderController {
     }
 
     @GetMapping("/order/get/{id}")
-    public String get_order(@PathVariable String id) {
+    public String get_order(@PathVariable String id, HttpServletRequest request) {
+        // 尝试获取登录信息
+        int user_id = -1;
+        String user_token = "";
+        boolean is_login = false;
+        Enumeration names = request.getParameterNames();
+        while(names.hasMoreElements()){
+            String name = (String) names.nextElement();
+            String value = request.getParameter(name);
+            if(name.equals("id")) {
+                user_id = Integer.parseInt(value);
+            }
+            if(name.equals("token")) {
+                user_token =  value;
+            }
+        }
+        // 验证登陆
+        if(user_id != -1) {
+            is_login = userService.verify_token_by_id(user_id, user_token);
+        }
         Order order = orderService.get_order_by_id(id);
         if(order != null) {
+            if(!is_login) {
+                // 去除详细地址
+                StringBuilder address = new StringBuilder();
+                String[] add_list = order.getOrder_address().split("/");
+                for(String add : add_list) {
+                    address.append(add.substring(0, add.indexOf("市") + 1));
+                    address.append("/");
+                }
+                order.setOrder_address(address.substring(0, address.length() - 1));
+                // 去除个人信息
+                order.setOrder_email("隐藏/隐藏");
+                order.setOrder_phone("隐藏/隐藏");
+            }
             return gson.toJson(order);
         } else {
             return gson.toJson(new BaseMsg(404, "运单不存在！"));
@@ -113,14 +145,14 @@ public class OrderController {
     public String get_address_way(@PathVariable String end, @PathVariable String start) {
         // 构建类
         OrderCost info = new OrderCost();
-        info.setStart(start);
-        info.setEnd(end);
-        // 获取距离
-        double distance = orderService.calc_distance(start, end);
-        info.setDistance(distance);
+        // 获取坐标以及距离
+        double[] distance = orderService.calc_distance(start, end);
+        info.setDistance(distance[0]);
         // 计算费用
-        double cost = Math.round(distance) * 2 + Math.round(distance) * 0.2;
+        double cost = Math.round(distance[0]) * 2 + Math.round(distance[0]) * 0.2;
         info.setCost(cost);
+        info.setStartPoint(new double[] {distance[1], distance[2]});
+        info.setEndPoint(new double[] {distance[3], distance[4]});
         return gson.toJson(info);
     }
 }
