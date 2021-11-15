@@ -8,6 +8,7 @@ import com.chuhelan.htg.service.UserService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -72,7 +73,14 @@ public class UserController {
     public String get_user_base_info(int id) {
         User user = userService.get_user_by_id(id);
         UserInfo info = userService.get_userinfo_by_id(id);
-        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name() + " " + user.getUser_last_name());
+        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name());
+        return gson.toJson(base);
+    }
+    @GetMapping("/info/base/{id}")
+    public String get_user_base_info_id(@PathVariable int id) {
+        User user = userService.get_user_by_id(id);
+        UserInfo info = userService.get_userinfo_by_id(id);
+        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name());
         return gson.toJson(base);
     }
 

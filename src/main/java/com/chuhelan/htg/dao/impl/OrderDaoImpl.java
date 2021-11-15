@@ -32,4 +32,9 @@ public class OrderDaoImpl implements OrderDao {
     public int save_order(Order order) {
         return 0;
     }
+
+    @Override
+    public int change_order_state_by_order_id(String id, String state) {
+        return 0;
+    }
 }

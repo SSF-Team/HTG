@@ -46,6 +46,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public int change_state(String id, String state) {
+        return orderDao.change_order_state_by_order_id(id, state);
+    }
+
+    @Override
     public double[] calc_distance(String way1, String way2) {
         // 计算距离
         System.out.println("操作 > createOrder > 计算订单距离 > " + way1 + " / " + way2);
@@ -83,5 +88,11 @@ public class OrderServiceImpl implements OrderService {
                 Double.parseDouble(endPoint[0]),
                 Double.parseDouble(endPoint[1])
         };
+    }
+
+    @Override
+    public boolean is_its_order(String id, int user_id) {
+        Order info = orderDao.get_order_by_id(id);
+        return info.getOrder_user_id() == user_id;
     }
 }

@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
+    <script src="/js/center_main.js"></script>
 </head>
 <body>
 <header class="header" id="beginning">
@@ -77,7 +78,7 @@
                                     <a class="nav-link" href="/center/new.html">发件</a>
                                 </li>
                                 <li class="nav-item menu_item">
-                                    <a class="nav-link" href="/orders/index.html">查询</a>
+                                    <a class="nav-link" href="/order/index.html">查询</a>
                                 </li>
                                 <li class="nav-item menu_item">
                                     <a class="nav-link" href="/center/mine.html">管理快件</a>
@@ -95,63 +96,64 @@
 </header>
 <div class="container-lg">
     <div class="to-bar">
-        <i>创建快件</i>
+        <i><strong>创建快件</strong></i>
         <i>——— 支付</i>
         <i>——— 打印</i>
-        <button>取消</button>
     </div>
-    <div class="main-card ss-card" style="margin-bottom: 100px;">
-        <div class="alert alert-primary" role="alert">
-            如果你已经拥有 DHL 账户， <a>立即登录</a>
+    <div class="main-card ss-card">
+        <div class="alert alert-primary" role="alert" id="alert" style="display: none">
+            请先登陆账号再进行操作， <a>立即登录</a>
         </div>
-        <div class="cardse-1">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">发件地</a><br>
-            <div class="new-order create_order">
-                <i>姓名</i><br>
-                <input placeholder="姓名"><br>
-                <i>国家 / 地区</i><br>
-                <input placeholder="China 中华人民共和国"><br>
-                <i>地址</i><br>
-                <input><br>
-                <i>邮政编码</i><br>
-                <input><br>
-                <i>电子邮箱</i><br>
-                <input placeholder="我们将向此电子邮件发送快件通知。"><br>
-                <i>电话</i><br>
-                <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);">
-                <br><br>
+        <form onsubmit="new_order();return false;">
+            <div class="cardse-1">
+                <a class="title" style="font-size: 1.1rem;margin-left: 0;">发件地</a><br>
+                <div class="new-order create_order">
+                    <i>姓名</i><br>
+                    <input placeholder="姓名" id="sender-name"><br>
+                    <i>国家 / 地区</i><br>
+                    <input placeholder="China 中华人民共和国" id="sender-country"><br>
+                    <i>地址</i><br>
+                    <input id="send-address" value=""><br>
+                    <i>邮政编码</i><br>
+                    <input><br>
+                    <i>电子邮箱</i><br>
+                    <input placeholder="我们将向此电子邮件发送快件通知。" id="sender-email"><br>
+                    <i>电话</i><br>
+                    <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);" id="sender-phone">
+                    <br><br>
+                </div>
+                <a>清空表单</a>
             </div>
-            <a>清空表单</a>
-        </div>
-        <div class="cardse-2">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">收件地</a><br>
-            <div class="new-order create_order">
-                <i>姓名</i><br>
-                <input placeholder="姓名"><br>
-                <i>国家 / 地区</i><br>
-                <input placeholder="China 中华人民共和国"><br>
-                <i>地址</i><br>
-                <input><br>
-                <i>电子邮箱</i><br>
-                <input placeholder="我们将向此电子邮件发送快件通知。"><br>
-                <i>电话</i><br>
-                <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);">
-                <br><br>
+            <div class="cardse-2">
+                <a class="title" style="font-size: 1.1rem;margin-left: 0;">收件地</a><br>
+                <div class="new-order create_order">
+                    <i>姓名</i><br>
+                    <input placeholder="姓名" id="getter-name"><br>
+                    <i>国家 / 地区</i><br>
+                    <input placeholder="China 中华人民共和国" id="getter-country"><br>
+                    <i>地址</i><br>
+                    <input id="get-address" value=""><br>
+                    <i>电子邮箱</i><br>
+                    <input placeholder="我们将向此电子邮件发送快件通知。" id="getter-email"><br>
+                    <i>电话</i><br>
+                    <input style="width: 15%;"> - <input style="width: calc(85% - 70px - 16px);" id="getter-phone">
+                    <br><br>
+                </div>
+                <a>清空表单</a><br>
+                <a>添加联系人</a>
             </div>
-            <a>清空表单</a><br>
-            <a>添加联系人</a>
-        </div>
-        <div style="clear: both;display: block;"></div>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 10px;">
-            <strong>重要</strong> 自 10 月 25 日起，由于 Covid-19 导致的人员调度，取件暂时限制为每次取件/每天 100 公斤，直至另行通知。
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="new-order">
-            <button type="submit">下一步</button>
-        </div>
-        <div style="clear: both;display: block;"></div>
+            <div style="clear: both;display: block;"></div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                <strong>重要</strong> 自 10 月 25 日起，由于 Covid-19 导致的人员调度，取件暂时限制为每次取件/每天 100 公斤，直至另行通知。
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="new-order">
+                <button type="submit">下一步</button>
+            </div>
+            <div style="clear: both;display: block;"></div>
+        </form>
     </div>
 </div>
 
@@ -161,4 +163,5 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="/js/scripts.js"></script>
+<script src="/js/center_new.js"></script>
 </body>

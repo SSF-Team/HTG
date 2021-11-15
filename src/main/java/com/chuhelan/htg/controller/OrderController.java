@@ -45,24 +45,24 @@ public class OrderController {
                                 String data_1, String data_2, String other_set) {
         // 验证登录
         boolean login = userService.verify_token_by_id(user_id, token);
-        if(login) {
+        if (login) {
             // 整理数据（顺便验证数据合法性）
             /* data 的结构
-            *   0姓名 / 1国家 / 2地址 / 3电子邮箱 / 4电话
-            */
-            /* outher_set 为附加参数，暂时没用
+             *   0姓名 / 1国家 / 2地址 / 3电子邮箱 / 4电话
+             */
+            /* other_set 为附加参数，暂时没用
              *   乱写点什么东西不然空着行不好看
              */
             String[] info1 = data_1.split("/");
             String[] info2 = data_2.split("/");
             System.out.println(data_1);
-            if(info1.length == 5 && info2.length == 5) {
+            if (info1.length == 5 && info2.length == 5) {
                 // 生成订单号
                 StringBuilder order_id = new StringBuilder("HTG");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
                 order_id.append(sdf.format(new Date()));
                 Order[] orders = orderService.get_orders_today();
-                order_id.append(String.format("%03d", orders == null?0:orders.length + 1));
+                order_id.append(String.format("%03d", orders == null ? 0 : orders.length + 1));
                 order_id.append("A");
                 // 创建订单
                 Order new_order = new Order();
@@ -93,27 +93,27 @@ public class OrderController {
         String user_token = "";
         boolean is_login = false;
         Enumeration names = request.getParameterNames();
-        while(names.hasMoreElements()){
+        while (names.hasMoreElements()) {
             String name = (String) names.nextElement();
             String value = request.getParameter(name);
-            if(name.equals("id")) {
+            if (name.equals("id")) {
                 user_id = Integer.parseInt(value);
             }
-            if(name.equals("token")) {
-                user_token =  value;
+            if (name.equals("token")) {
+                user_token = value;
             }
         }
         // 验证登陆
-        if(user_id != -1) {
+        if (user_id != -1) {
             is_login = userService.verify_token_by_id(user_id, user_token);
         }
         Order order = orderService.get_order_by_id(id);
-        if(order != null) {
-            if(!is_login) {
+        if (order != null) {
+            if (!is_login || order.getOrder_user_id() != user_id) {
                 // 去除详细地址
                 StringBuilder address = new StringBuilder();
                 String[] add_list = order.getOrder_address().split("/");
-                for(String add : add_list) {
+                for (String add : add_list) {
                     address.append(add.substring(0, add.indexOf("市") + 1));
                     address.append("/");
                 }
@@ -140,7 +140,7 @@ public class OrderController {
      * @Date 14:00 2021/11/11
      * @Param []
      * @return java.lang.String
-    **/
+     **/
     @GetMapping("/order/cost/{start}/{end}")
     public String get_address_way(@PathVariable String end, @PathVariable String start) {
         // 构建类
@@ -151,8 +151,29 @@ public class OrderController {
         // 计算费用
         double cost = Math.round(distance[0]) * 2 + Math.round(distance[0]) * 0.2;
         info.setCost(cost);
-        info.setStartPoint(new double[] {distance[1], distance[2]});
-        info.setEndPoint(new double[] {distance[3], distance[4]});
+        info.setStartPoint(new double[]{distance[1], distance[2]});
+        info.setEndPoint(new double[]{distance[3], distance[4]});
         return gson.toJson(info);
+    }
+
+    @GetMapping("/order/confirm")
+    public String confirm_order(String order_id, int user_id, String user_token) {
+        // 验证登录
+        boolean is_login = userService.verify_token_by_id(user_id, user_token);
+        if (is_login) {
+            if (orderService.is_its_order(order_id, user_id)) {
+                // 进行确认订单操作
+                Order order = orderService.get_order_by_id(order_id);
+                if(order.getOrder_status().equals("未确认")) {
+                    orderService.change_state(order_id, "未发货");
+                    return gson.toJson(new BaseMsg(200, "确认成功！"));
+                } else {
+                    return gson.toJson(new BaseMsg(500, "运单无需确认！"));
+                }
+            } else {
+                return gson.toJson(new BaseMsg(302, "无权操作！"));
+            }
+        }
+        return gson.toJson(new BaseMsg(302, "验证登陆失败！"));
     }
 }

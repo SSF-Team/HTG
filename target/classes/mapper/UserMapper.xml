@@ -17,7 +17,7 @@
     <select id="get_userinfo_by_mail" resultType="com.chuhelan.htg.beans.User">
         select * from htg_user where user_email=#{user_mail}
     </select>
-    <select id="get_all_user">
+    <select id="get_all_user" resultType="com.chuhelan.htg.beans.User">
         select * from htg_user
     </select>
     <select id="get_userinfo_by_id" resultType="com.chuhelan.htg.beans.User">

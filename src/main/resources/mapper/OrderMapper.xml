@@ -12,6 +12,9 @@
     <select id="get_orders_id_by_user_id" resultType="string">
         select order_id from htg_order where order_user_id=#{id}
     </select>
+    <update id="change_order_state_by_order_id">
+        update htg_order set order_status=#{state} where order_id=#{id}
+    </update>
     <insert id="save_order" parameterType="com.chuhelan.htg.beans.Order">
         insert into htg_order (order_id, order_user_id, order_create_date, order_name, order_country, order_address, order_email, order_phone)
         values (#{order_id}, #{order_user_id}, #{order_create_date}, #{order_name}, #{order_country}, #{order_address}, #{order_email},

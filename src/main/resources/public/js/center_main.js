@@ -1,18 +1,26 @@
 // 验证登录
-let id = null
-let cookie = null
+let id = -1
+let cookie = ''
 const cookies = document.cookie
 const cookie_list = cookies.split(";")
 let save = ""
 cookie_list.forEach(function(element){
-    if(element.indexOf("id") || element.indexOf("token")) {
+    if(element.trim().substring(0, 2) === 'id' || element.trim().substring(0, 5) === 'token') {
         save += element + "&"
     }
 })
 save = save.substring(0, save.length - 1)
 save = save.split(" ").join("")     // 去除空格
-id = save.split('&')[0].split('=')[1]
-cookie = save.split('&')[1].split('=')[1]
+console.log('save：' + save)
+if(save.indexOf('&') > 0) {
+    if(save.split('&')[0].split('=')[0].trim() === 'id') {
+        id = save.split('&')[0].split('=')[1]
+        cookie = save.split('&')[1].split('=')[1]
+    } else {
+        id = save.split('&')[1].split('=')[1]
+        cookie = save.split('&')[0].split('=')[1]
+    }
+}
 if(save.indexOf("&") > 0) {
     // 请求 API
     const httpRequest = new XMLHttpRequest()

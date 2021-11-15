@@ -6,23 +6,20 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style-lc.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>个人中心 - HTG</title>
+    <title>寄件 - 个人中心 - DHL</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/center.css">
+    <link rel="stylesheet" href="/css/order_make.css">
     <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="/js/JsBarcode.all.min.js"></script>
+    <script src="/js/center_main.js"></script>
 </head>
 <body>
-<script>
-    $( function() {
-        $( "#tabs" ).tabs();
-    } );
-</script>
 <header class="header" id="beginning">
     <div class="header_top">
         <div class="container">
@@ -100,101 +97,66 @@
     </div>
 </header>
 
-
 <div class="container-lg">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Covid-19 更新</strong> 服务更新和紧急情形附加费 <a>查看更多</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="to-bar">
+        <i>创建快件</i>
+        <i>——— 支付</i>
+        <i>——— <strong>打印</strong></i>
     </div>
-
-    <a class="title">欢迎使用 HTG 用户中心</a>
-    <div class="main-card ss-card card-0">
-        <div class="card-0-name">
-            <img id="user-head">
-            <i id="user-name">User Name</i>
-        </div>
-    </div>
-    <div class="main-card ss-card card-1">
-        <div id="tabs" class="tab-1">
-            <ul>
-                <li><a href="#tabs-1">创建一个快件</a></li>
-                <li><a href="#tabs-2">从历史快件中创建</a></li>
-                <li><a href="#tabs-3">获取报价</a></li>
-            </ul>
-            <div id="tabs-1" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <form method="get" action="new.html">
-                    <div class="new-order">
-                        <i>发件地</i><br>
-                        <input name="start">
-                        <div style="margin-top: 50px;"></div>
-                        <i>收件地</i><br>
-                        <input name="end"><br>
-                        <button type="submit">下一步</button>
-                    </div>
-                </form>
-                <div style="clear: both;display: block;"></div>
-            </div>
-            <div id="tabs-2">
-
-            </div>
-            <div id="tabs-3" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <div class="new-order">
-                    <i>发件地</i><br>
-                    <input>
-                    <div style="margin-top: 50px;"></div>
-                    <i>收件地</i><br>
-                    <input><br>
-                    <button>下一步</button>
-                </div>
-                <div style="clear: both;display: block;"></div>
-            </div>
-        </div>
-        <div class="tab-1-side">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">我的快件</a><br>
-            <a style="font-size: 0.8rem;font-weight: 400;">过去90天的发件记录</a><br>
-            <div>
-                <a>已保存的快件（1）</a><br>
-                <a>查看所有快件</a>
-            </div>
-            <hr>
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">查询</a><br>
-            <textarea style="width: 100%;margin-top: 10px;"></textarea>
-            <button style="float: right;width: 100px;background: transparent;border: 1px solid #000;">查询</button>
-        </div>
+    <div class="ss-card main-card">
+        <img style="width: 100px;margin-bottom: 15px;" src="/img/htg.svg">
+        <i style="float: right;">标准包裹</i>
+        <table border="1" style="width: 350px;">
+            <tr>
+                <td style="text-align: center;" colspan="2">
+                    <svg id="barcode" class="main-code"></svg><br>
+                    <i id="order_id" class="order-big-id"></i>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;height: 95px;" colspan="2">
+                    <svg style="margin-bottom: 50px;width: 20px;float: left;margin-top: 5px;margin-right: 10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>
+                    <i id="order-get-name" class="get-text"></i><br>
+                    <i id="order-get-address" class="get-text"></i>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;" colspan="2">
+                    <svg style="width: 20px;float: left;margin-bottom: 10px;margin-top: 15px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+                    <i id="order-send-name" class="send-text"></i><br>
+                    <i id="order-send-address" class="send-text"></i>
+                </td>
+            </tr>
+            <tr>
+                <td width="176px" height="50px" style="padding-bottom: 10px;">
+                    <svg id="barcode-1" class="main-code" style="margin-bottom: 5px !important;"></svg>
+                </td>
+                <td style="text-align: center">
+                    <i id="jli" class="text-jl">0.0</i>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="100px">
+                    <i id="time-info" class="small-time"></i>
+                    <i class="qmq">签名区</i>
+                </td>
+            </tr>
+        </table>
+        <i id="make-time" style="font-size: 5px;float: right;">打印日期：</i>
         <div style="clear: both;display: block;"></div>
     </div>
-    <div class="main-card ss-card card-1">
-        <div class="card2-1">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">提交工单</a><br>
+    <div class="ss-card main-card card-right">
+        <header>打印箱面单</header>
+        <div class="alert alert-primary" role="alert">
+            您可以自行打印左侧箱面单粘贴于快递箱上，也可以选择由就近服务站点的工作人员打印它，同样你可以在“个人中心 - 运单管理”处再次打开此界面。
         </div>
-        <div class="card2-2">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">未完成快件</a><br>
-        </div>
-        <div style="clear: both;display: block;"></div>
+        <button class="button-next" style="background: #ffe061;border: 0" onclick="go_home()">回到主页</button>
     </div>
-
 </div>
-
-
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="/js/scripts.js"></script>
-<script src="/js/center_main.js"></script>
-<script src="/js/center_index.js"></script>
+<script src="/js/order_make.js"></script>
 </body>

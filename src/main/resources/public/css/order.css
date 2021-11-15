@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+hr {
+    border: 1px dashed #0000003b;
+    margin-top: 30px;
+}
+
+:root {
+    --color-shader: #dbdbdb;
+}
+
+.main-card {
+    -webkit-box-shadow:0 0 5px var(--color-shader) !important;
+    -moz-box-shadow:0 0 5px var(--color-shader) !important;
+    box-shadow:0 0 5px var(--color-shader) !important;
+
+    margin: 30px;
+}
+
+.main-div {
+    width:100%;
+    height: 100%;
+}
+
+.left-card {
+    width: 400px;
+    height: calc(100% - 60px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.3) !important;
+    padding: 40px !important;
+}
+.left-card header {
+    font-size: 1.2rem !important;
+    margin-left: 0 !important;
+    margin-bottom: 30px !important;
+}
+.left-card input {
+    height: 35px;
+    background: transparent;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 40px;
+    padding-left: 20px;
+}
+.left-card button {
+    width: 80px;
+    margin-left: 10px;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 35px;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.from-ab {
+    float: left;
+    width: 50px;
+    margin-top: 25px;
+}
+.from-ab i {
+    font-style: normal;
+    border: 2px solid #ffcd00;
+    padding: 5px 9px;
+    border-radius: 100%;
+    font-size: 0.6rem;
+    margin-left: 1px;
+}
+.from-ab div {
+    height: 5px;
+    border-left: 2px dashed #ffcd00;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.from-text {
+    float: left;
+    margin-top: 25px;
+}
+.from-text i {
+    font-style: normal;
+}
+.from-text div {
+    margin-top: 25px;
+}
+
+.status_title {
+    color: #ffcd00 !important;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    visibility: hidden;
+}
+
+.back-button {
+    float: left;
+    width: 35px !important;
+    border: 0 !important;
+    margin-right: 5px;
+    margin-left: -4px !important;
+}
+.back-button:focus {
+    outline: 1px solid #000;
+}
+.back-button svg {
+    width: 15px;
+    margin-top: 2px;
+    margin-left: -2px;
+}
+
+.time-pan i, .user-pan i {
+    font-style: normal;
+    margin-left: 10px;
+}
+.user-pan i {
+    line-height: 2.5rem;
+}
+.user-pan i > svg {
+    width: 20px;
+    color: #ffcd00;
+    margin-bottom: -5px;
+}
+
+.sending-pan svg {
+    width: 20px;
+    color: #ffcd00;
+}
+.sending-dot {
+    width: calc(100% - 40px);
+    float: right;
+    border: 4px dashed #ffcd00;
+    margin-top: 5px;
+}
+
+.but-img {
+    position: absolute;
+    left: calc(50% - 50px);
+    width: 100px;
+    bottom: 30px;
+}

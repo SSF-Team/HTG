@@ -51,7 +51,8 @@ ul, li {
 }
 
 .header_menu {
-	background: #FFCD00;
+	backdrop-filter: blur(30px);
+	background: #ffcd009e;
 	position: -webkit-sticky;
 }
 

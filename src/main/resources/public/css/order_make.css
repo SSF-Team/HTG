@@ -1,0 +1,80 @@
+i {
+    font-style: normal;
+}
+
+.order-big-id {
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 8px;
+}
+
+.main-code {
+    transform: unset !important;
+    margin-bottom: -10px;
+}
+
+.get-text {
+    font-weight: 700;
+}
+.send-text {
+    font-size: 0.4rem;
+    margin-left: 10px;
+    line-height: 5px;
+}
+
+.text-jl {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.small-time {
+    font-size: 0.2rem;
+    float: left;
+    margin-top: -50px;
+}
+
+.qmq {
+    float: right;
+    margin-top: -50px;
+    width: 50px;
+}
+
+.main-card {
+    -webkit-box-shadow: 0 0 5px var(--color-shader) !important;
+    -moz-box-shadow: 0 0 5px var(--color-shader) !important;
+    box-shadow: 0 0 5px var(--color-shader) !important;
+
+    margin-top: 30px;
+    width: 391px;
+}
+
+.card-right {
+    float: right;
+    margin-top: -480px;
+    width: calc(100% - 420px
+    );
+}
+
+.button-next {
+    width: 100px;
+    height: 35px;
+    border: 1px solid #000;
+    border-radius: 35px;
+    background: transparent;
+}
+
+.to-bar {
+    margin-top: 20px;
+}
+.to-bar i {
+    font-style: normal;
+    font-size: 0.8rem;
+}
+.to-bar button {
+    float: right;
+    background: #ffcd00;
+    border: 0;
+    border-radius: 6px;
+    padding: 5px 15px;
+    margin-top: -5px;
+}

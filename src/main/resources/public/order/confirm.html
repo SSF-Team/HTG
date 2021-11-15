@@ -6,23 +6,19 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style-lc.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>个人中心 - HTG</title>
+    <title>寄件 - 个人中心 - DHL</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/center.css">
+    <link rel="stylesheet" href="/css/order_confirm.css">
     <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="/js/center_main.js"></script>
 </head>
 <body>
-<script>
-    $( function() {
-        $( "#tabs" ).tabs();
-    } );
-</script>
 <header class="header" id="beginning">
     <div class="header_top">
         <div class="container">
@@ -100,101 +96,46 @@
     </div>
 </header>
 
-
 <div class="container-lg">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Covid-19 更新</strong> 服务更新和紧急情形附加费 <a>查看更多</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="to-bar">
+        <i>创建快件</i>
+        <i>——— <strong>支付</strong></i>
+        <i>——— 打印</i>
     </div>
-
-    <a class="title">欢迎使用 HTG 用户中心</a>
-    <div class="main-card ss-card card-0">
-        <div class="card-0-name">
-            <img id="user-head">
-            <i id="user-name">User Name</i>
-        </div>
-    </div>
-    <div class="main-card ss-card card-1">
-        <div id="tabs" class="tab-1">
-            <ul>
-                <li><a href="#tabs-1">创建一个快件</a></li>
-                <li><a href="#tabs-2">从历史快件中创建</a></li>
-                <li><a href="#tabs-3">获取报价</a></li>
-            </ul>
-            <div id="tabs-1" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <form method="get" action="new.html">
-                    <div class="new-order">
-                        <i>发件地</i><br>
-                        <input name="start">
-                        <div style="margin-top: 50px;"></div>
-                        <i>收件地</i><br>
-                        <input name="end"><br>
-                        <button type="submit">下一步</button>
-                    </div>
-                </form>
-                <div style="clear: both;display: block;"></div>
+    <div style="background: transparent;-moz-box-shadow: 0 0 0 #dfdfdf00;-webkit-box-shadow: 0 0 0 #dfdfdf00;box-shadow: 0 0 0 #dfdfdf00;">
+        <div class="envelope">
+            <h2>订单信息</h2>
+            <h6></h6>
+            <div style="border-top: 1px dashed #c2c2c2;margin-top: 20px;">
+                <p>创建日期：<span id="oif_createDate"></span></p>
             </div>
-            <div id="tabs-2">
-
+            <div style="border-top: 1px dashed #c2c2c2;margin-top: 20px;">
+                <p>寄件人：<span id="oif_sendName"></span></p>
+                <p>联系方式：<span id="oif_sendPhone"></span></p>
+                <p>地址：<span id="oif_sendAddress"></span></p>
             </div>
-            <div id="tabs-3" style="padding-top: 40px;">
-                <div class="from-ab">
-                    <i>A</i>
-                    <div></div>
-                    <a></a>
-                    <i>B</i>
-                </div>
-                <div class="new-order">
-                    <i>发件地</i><br>
-                    <input>
-                    <div style="margin-top: 50px;"></div>
-                    <i>收件地</i><br>
-                    <input><br>
-                    <button>下一步</button>
-                </div>
-                <div style="clear: both;display: block;"></div>
+            <div style="border-top: 1px dashed #c2c2c2;margin-top: 20px;">
+                <p>收件人：<span id="oif_getName"></span></p>
+                <p>联系方式：<span id="oif_getPhone"></span></p>
+                <p>地址：<span id="oif_getAddress"></span></p>
             </div>
         </div>
-        <div class="tab-1-side">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">我的快件</a><br>
-            <a style="font-size: 0.8rem;font-weight: 400;">过去90天的发件记录</a><br>
-            <div>
-                <a>已保存的快件（1）</a><br>
-                <a>查看所有快件</a>
-            </div>
-            <hr>
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">查询</a><br>
-            <textarea style="width: 100%;margin-top: 10px;"></textarea>
-            <button style="float: right;width: 100px;background: transparent;border: 1px solid #000;">查询</button>
-        </div>
-        <div style="clear: both;display: block;"></div>
+        <div class="envelope-png"></div>
     </div>
-    <div class="main-card ss-card card-1">
-        <div class="card2-1">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">提交工单</a><br>
+    <div class="ss-card main-card">
+        <header style="margin-left: 0;">确认订单信息</header>
+        <div class="alert alert-danger" role="alert" id="err-alert" style="display: none"></div>
+        <div class="alert alert-primary" role="alert">
+            点按下面的确认按钮来确认运单信息，点按取消重新下单。你也可以暂时离开这而，在“个人中心 - 运单管理”处可再次打开。
         </div>
-        <div class="card2-2">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">未完成快件</a><br>
-        </div>
-        <div style="clear: both;display: block;"></div>
+        <button class="button-next" style="background: #ffe061;border: 0" onclick="go_confirm()">确定</button>
+        <button class="button-next">取消</button>
     </div>
-
 </div>
-
-
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="/js/scripts.js"></script>
-<script src="/js/center_main.js"></script>
-<script src="/js/center_index.js"></script>
+<script src="/js/order_confirm.js"></script>
 </body>

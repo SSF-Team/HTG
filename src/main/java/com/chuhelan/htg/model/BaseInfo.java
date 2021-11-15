@@ -13,10 +13,12 @@ import lombok.Data;
 @Data
 public class BaseInfo {
     String pic_link;
-    String name;
+    String first_name;
+    String last_name;
 
-    public BaseInfo(String user_profile, String s) {
+    public BaseInfo(String user_profile, String s, String s1) {
         pic_link = user_profile;
-        name = s;
+        first_name = s;
+        last_name = s1;
     }
 }

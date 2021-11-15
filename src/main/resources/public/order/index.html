@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="img/title_logo.png" type="image/png">
+    <link rel="shortcut icon" href="/img/title_logo.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -10,13 +10,69 @@
     <!-- 百度地图 js -->
     <script type="text/javascript"
             src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=62WAvGClEExBObY1zU4ZuMMEYxVRmWdF"></script>
-    <title>订单查询 - DHL</title>
-    <script src="/js/order.js"></script>
+    <title>订单查询 - HTG</title>
+    <link rel="stylesheet" href="/css/order.css">
+    <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
 </head>
 <body>
 
 <!-- 地图组件 -->
-<div id="container" style="height: 500px;width: 100%;"></div>
+<div id="container" class="main-div"></div>
+<!-- 悬浮卡片模块 -->
+<div class="left-card ss-card main-card">
+    <div>
+        <button class="back-button" onclick="back_center()">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+        </button>
+        <header>订单查询</header>
+        <header id="order-status" class="status_title">运单状态</header>
+    </div>
+    <input id="order_input" style="width: calc(100% - 90px);" value=""><button onclick="go_search()">查询</button>
+    <div class="alert alert-danger" role="alert" id="alert-err" style="display: none;margin-top: 30px;"></div>
+    <div id="way_pan" style="display: none">
+        <div class="from-ab">
+            <i>A</i>
+            <div></div>
+            <i>B</i>
+        </div>
+        <div class="from-text">
+            <i id="order-start">发件地</i>
+            <div></div>
+            <i id="order-end">收件地</i>
+        </div>
+        <div style="clear: both;display: block;"></div>
+    </div>
+    <hr>
+    <div id="time_pan" class="time-pan" style="visibility: hidden">
+        <header>流程信息</header>
+        <i id="create_pan" style="display: none">创建日期：<i id="date_create">date_create</i><br></i>
+        <i id="send_pan" style="display: none">发货日期：<i id="date_send">date_send</i><br></i>
+        <i id="end_pan" style="display: none">送达日期：<i id="date_end">date_end</i><br></i>
+        <i id="close_pan" style="display: none">收货日期：<i id="date_close">date_close</i><br></i>
+        <hr style="margin-top: 15px;">
+    </div>
+    <div id="user_pan" class="user-pan" style="display: none">
+        <header style="margin-bottom: 10px !important;">用户信息</header>
+        <i>
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
+            <i id="order-sender-info">发件人信息</i><br>
+        </i>
+        <i>
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>
+            <i id="order-getter-info">收件人信息</i>
+        </i>
+        <hr style="margin-top: 15px;">
+    </div>
+    <div id="sending_pan" class="sending-pan" style="display: none">
+        <header>运输信息</header>
+        <div class="alert alert-primary" role="alert" id="alert-send-man"></div>
+    </div>
+    <div class="alert alert-primary" role="alert" id="alert" style="visibility: hidden"></div>
+    <div class="alert alert-warning" role="alert" id="login_alert" style="display: none">
+        如果想要查看订单详细信息，请登录！
+    </div>
+    <img class="but-img" src="/img/htg.svg">
+</div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -27,4 +83,5 @@
 <script>
 </script>
 </body>
+<script src="/js/order.js"></script>
 </html>
