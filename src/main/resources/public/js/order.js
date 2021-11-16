@@ -78,7 +78,7 @@ if(order_id !== "") {
             switch (data.order_status) {
                 case '未确认': {
                     document.getElementById('alert').style.visibility = 'visible'
-                    document.getElementById('alert').innerText = '快件未被确认，如果您是发件者，请进入个人中心确认订单。'
+                    document.getElementById('alert').innerHTML = '快件未被确认。<br>如果您是发件者，请进入个人中心确认订单。'
                     break
                 }
                 case '运输中': {
@@ -87,7 +87,7 @@ if(order_id !== "") {
                     fetch('/info/base/' + data.order_sender_id)
                         .then(response => response.json())
                         .then(data => {
-                            document.getElementById('alert-send-man').innerText = '此快件正在由 ' + data.first_name + ' ' + data.last_name + ' 寄送，进入“个人中心 - 管理运单”查看详情。'
+                            document.getElementById('alert-send-man').innerHTML = '此快件正在由 ' + data.first_name + ' ' + data.last_name + ' 寄送<br>进入“个人中心 - 管理运单”查看详情。'
                         })
                         .catch(console.error)
                     break

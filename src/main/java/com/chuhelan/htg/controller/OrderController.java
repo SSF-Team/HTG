@@ -78,7 +78,6 @@ public class OrderController {
                 // 写入数据库
                 orderService.save_order(new_order);
                 // 返回订单信息用于下一步操作
-                //（TODO 记得下一步是确认订单 - 付钱）
                 return gson.toJson(new BaseMsg(200, new_order.getOrder_id()));
             }
             return gson.toJson(new BaseMsg(403, "参数错误！"));

@@ -19,3 +19,23 @@ function login() {
         })
         .catch(console.error)
 }
+
+function reg() {
+    // user_last_name=Steve
+    // user_first_name=Stapx
+    // user_email=stapx@qq.com
+    // user_password=123
+    // user_phone=12345678901
+    var last = document.getElementById('last_name-reg').value
+    var fist = document.getElementById('fist_name-reg').value
+    var password = document.getElementById('password-reg').value
+    var email = document.getElementById('mail_reg').value
+    var phone = document.getElementById('phone_reg').value
+    fetch("/register?user_last_name=" + last + "&user_first_name=" + fist + '&user_email=' + email + '&user_password=' + password + "&user_phone=" + phone)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('reg_err_msg').style.visibility = "visible"
+            document.getElementById('reg_err_msg_txt').innerText = data.message
+        })
+        .catch(console.error)
+}

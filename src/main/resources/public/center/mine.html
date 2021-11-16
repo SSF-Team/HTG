@@ -9,6 +9,7 @@
     <title>寄件 - 个人中心 - DHL</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/center.css">
+    <link rel="stylesheet" href="/css/center_mine.css">
     <link rel="stylesheet" href="https://api.stapxs.cn/css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
@@ -96,9 +97,28 @@
 </header>
 
 <div class="container-lg">
-
+    <div class="main-card ss-card card-1" id="list_no_trust">
+        <a class="title" style="font-size: 1.1rem;margin-left: 0;">未确认</a><br>
+    </div>
+    <div class="main-card ss-card card-1" id="list_no_start">
+        <a class="title" style="font-size: 1.1rem;margin-left: 0;">未发货</a><br>
+    </div>
+    <div class="main-card ss-card card-1" id="list_in_run">
+        <a class="title" style="font-size: 1.1rem;margin-left: 0;">运输中</a><br>
+    </div>
+    <div class="main-card ss-card card-1" id="list_no_get">
+        <a class="title" style="font-size: 1.1rem;margin-left: 0;">未签收</a><br>
+    </div>
+    <div class="main-card ss-card card-1" id="list_end" style="margin-bottom: 50px;">
+        <a class="title" style="font-size: 1.1rem;margin-left: 0;">已完成</a><br>
+    </div>
 </div>
 
+
+<div class="pop" id="orderCheckPop">
+    <div style="min-height: 250px;">
+    </div>
+</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"

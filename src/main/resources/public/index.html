@@ -240,7 +240,15 @@
                         </div>
                     </form>
                     <form class="form-tab logistics_form del" id="logistics">
-
+                        <input id="fist_name-reg" type="text" class="shipment_select form_selects_reg" placeholder="名" style="margin-top: 20px;">
+                        <input id="last_name-reg" type="text" class="shipment_select form_selects_reg" placeholder="姓">
+                        <input id="mail_reg" type="email" class="shipment_select form_selects_reg" placeholder="账户邮箱">
+                        <input id="phone_reg" type="text" class="shipment_select form_selects_reg" placeholder="手机号码">
+                        <input id="password-reg" type="password" class="shipment_select form_selects_reg" placeholder="账户密码">
+                        <button type="submit" class="reg_button" onclick="reg();return false;">注册</button>
+                        <div id="reg_err_msg" class="err_msg" style="visibility: hidden;">
+                            <a id="reg_err_msg_txt">账户已存在</a>
+                        </div>
                     </form>
                 </div>
             </div>

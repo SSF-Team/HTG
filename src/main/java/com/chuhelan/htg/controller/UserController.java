@@ -33,6 +33,8 @@ public class UserController {
             case 302:
                 return gson.toJson(new BaseMsg(302, "账号已存在!"));
             case 200:
+                // TODO 初始化信息表
+
                 return gson.toJson(new BaseMsg(200, "注册成功！"));
         }
         return gson.toJson(new BaseMsg(500, "未知错误！"));

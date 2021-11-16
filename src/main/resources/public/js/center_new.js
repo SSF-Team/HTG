@@ -34,7 +34,7 @@ function new_order() {
             var order_id = jsonObj.message
             if(jsonObj.code === 200) {
                 // 跳转确认
-                window.location.href = "/center/confirm.html?id=" + order_id
+                window.location.href = "/order/confirm.html?id=" + order_id
             } else {
                 document.getElementById('alert').style.display = 'block'
                 document.getElementById('alert').innerText = jsonObj.message
