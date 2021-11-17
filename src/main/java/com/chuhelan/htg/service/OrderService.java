@@ -12,6 +12,7 @@ public interface OrderService {
     void delete_order(String id);
     void change_state(String id, String state);
     void receive_order(String id);
+    void next_order(String id);
 
     double[] calc_distance(String way1, String way2);
 

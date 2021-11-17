@@ -12,8 +12,15 @@
     <select id="get_orders_id_by_user_id" resultType="string">
         select order_id from htg_order where order_user_id=#{id};
     </select>
+    <select id="get_orders_id_for_user_id" resultType="string">
+        select order_id from htg_order where order_sender_id=#{id};
+    </select>
     <update id="change_order_state_by_order_id">
         update htg_order set order_status=#{state} where order_id=#{id};
+    </update>
+    <update id="update_order_all" parameterType="com.chuhelan.htg.beans.Order">
+        update htg_order set order_sender_id = #{order_sender_id}, order_send_date = #{order_send_date}, order_end_date = #{order_end_date}, order_close_date = #{order_close_date}, order_status = #{order_status}
+        where order_id=#{order_id};
     </update>
     <update id="receive_order">
         update htg_order set order_status='已完成', order_close_date=now() where order_id=#{id};

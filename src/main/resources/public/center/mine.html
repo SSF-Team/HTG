@@ -72,16 +72,16 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <ul class="menu navbar-nav d-flex justify-content-center">
-                                <li class="nav-item menu_item">
+                                <li class="nav-item menu_item" id="list_home">
                                     <a class="nav-link" href="/center/index.html">主页</a>
                                 </li>
-                                <li class="nav-item menu_item">
+                                <li class="nav-item menu_item" id="list_send">
                                     <a class="nav-link" href="/center/new.html">发件</a>
                                 </li>
-                                <li class="nav-item menu_item">
+                                <li class="nav-item menu_item" id="list_search">
                                     <a class="nav-link" href="/order/index.html">查询</a>
                                 </li>
-                                <li class="nav-item menu_item">
+                                <li class="nav-item menu_item" id="list_orders">
                                     <a class="nav-link" href="/center/mine.html">管理快件</a>
                                 </li>
                             </ul>
@@ -130,6 +130,23 @@
             <button id="cancel" data-order="" onclick="cancel_order(this);">取消运单</button>
             <button id="print" data-order="" onclick="show_page(this);">打印箱面单</button>
             <button id="okey" data-order="" onclick="ok_order(this);">确认签收</button>
+        </div>
+    </div>
+</div>
+
+<div class="pop" id="orderSenderUser" style="display: none">
+    <div>
+        <header>运单操作</header>
+        <button data-name="orderSenderUser" class="close-button" onclick="close_pop(this);">
+            <svg style="width: 15px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+        </button>
+        <div class="alert alert-danger" role="alert" style="margin-top: 20px;font-size: 0.9rem;display: none" id="alert-err-sender"></div>
+        <div class="alert alert-primary" role="alert" style="margin-top: 20px;font-size: 0.9rem;">
+            完成当前流程将使订单进入下一步寄送状态：<br>未发货 -> 运输中 -> 未签收（已完成）
+        </div>
+        <div style="justify-content: center;display: flex;flex-flow: wrap;">
+            <button id="next" data-order="" onclick="next_order(this);">完成当前流程</button>
+            <button id="print-sender" data-order="" onclick="show_page(this, true);">打印箱面单</button>
         </div>
     </div>
 </div>

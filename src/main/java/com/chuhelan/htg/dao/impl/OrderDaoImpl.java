@@ -29,6 +29,11 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public String[] get_orders_id_for_user_id(int id) {
+        return new String[0];
+    }
+
+    @Override
     public int save_order(Order order) {
         return 0;
     }
@@ -45,6 +50,11 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public int change_order_state_by_order_id(String id, String state) {
+        return 0;
+    }
+
+    @Override
+    public int update_order_all(Order order) {
         return 0;
     }
 }

@@ -40,3 +40,25 @@ if(save.indexOf("&") > 0) {
     // 跳回主页登录区域
     window.location.replace("/#logistics_inf?type=no_login")
 }
+
+// 刷新菜单
+fetch('/info/base/' + id)
+    .then(response => response.json())
+    .then(data => {
+        console.log('用户类型：' + data.type)
+        if(data.type !== '普通用户') {
+            remove_dom(document.getElementById('list_send'))
+            remove_dom(document.getElementById('list_search'))
+        }
+        if(data.type === '客服用户') {
+            remove_dom(document.getElementById('list_send'))
+            remove_dom(document.getElementById('list_search'))
+            remove_dom(document.getElementById('list_orders'))
+        }
+    })
+    .catch(console.error)
+
+function remove_dom(dom) {
+    const parent = dom.parentElement
+    parent.removeChild(dom)
+}

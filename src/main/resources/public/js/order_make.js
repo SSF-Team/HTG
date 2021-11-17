@@ -1,4 +1,8 @@
 var order_id = getQuery('id')
+var is_sender = getQuery('sender')
+if(is_sender !== '') {
+    document.getElementById('tip').innerText = '请打印左侧箱面单粘贴于用户快递箱上，可以在“个人中心 - 运单管理”处再次打开此界面。'
+}
 if(order_id !== '') {
     JsBarcode("#barcode", order_id, {
         lineColor: "#000",

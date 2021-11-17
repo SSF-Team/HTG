@@ -75,14 +75,14 @@ public class UserController {
     public String get_user_base_info(int id) {
         User user = userService.get_user_by_id(id);
         UserInfo info = userService.get_userinfo_by_id(id);
-        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name());
+        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name(), info.getUser_type());
         return gson.toJson(base);
     }
     @GetMapping("/info/base/{id}")
     public String get_user_base_info_id(@PathVariable int id) {
         User user = userService.get_user_by_id(id);
         UserInfo info = userService.get_userinfo_by_id(id);
-        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name());
+        BaseInfo base = new BaseInfo(info.getUser_profile(), user.getUser_first_name(), user.getUser_last_name(), info.getUser_type());
         return gson.toJson(base);
     }
 

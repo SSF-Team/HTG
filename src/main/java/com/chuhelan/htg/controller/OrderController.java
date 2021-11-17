@@ -108,7 +108,7 @@ public class OrderController {
         }
         Order order = orderService.get_order_by_id(id);
         if (order != null) {
-            if (!is_login || order.getOrder_user_id() != user_id) {
+            if (!is_login || (order.getOrder_user_id() != user_id && order.getOrder_sender_id() != user_id)) {
                 // 去除详细地址
                 StringBuilder address = new StringBuilder();
                 String[] add_list = order.getOrder_address().split("/");
@@ -203,6 +203,24 @@ public class OrderController {
             if (orderService.is_its_order(id, user_id)) {
                 // 进行签收操作
                 orderService.receive_order(id);
+                return gson.toJson(new BaseMsg(200, "操作成功！"));
+            } else {
+                return gson.toJson(new BaseMsg(302, "无权操作！"));
+            }
+        } else {
+            return gson.toJson(new BaseMsg(302, "验证登陆失败！"));
+        }
+    }
+
+    @PostMapping("/order/next/{id}")
+    public String next_order(@PathVariable String id, int user_id, String user_token) {
+        // 验证登录
+        boolean is_login = userService.verify_token_by_id(user_id, user_token);
+        if(is_login) {
+            // 验证订单所有权
+            if (orderService.is_its_order(id, user_id)) {
+                // 进行下雨不操作
+                orderService.next_order(id);
                 return gson.toJson(new BaseMsg(200, "操作成功！"));
             } else {
                 return gson.toJson(new BaseMsg(302, "无权操作！"));

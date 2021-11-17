@@ -10,3 +10,14 @@ if(id != null) {
         })
         .catch(console.error)
 }
+
+// 刷新 UI
+fetch('/info/base/' + id)
+    .then(response => response.json())
+    .then(data => {
+        console.log('用户类型：' + data.type)
+        if(data.type !== '普通用户') {
+            remove_dom(document.getElementById('new_card'))
+        }
+    })
+    .catch(console.error)

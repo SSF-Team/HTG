@@ -12,5 +12,5 @@ import lombok.Data;
 public class UserInfo {
     private String user_gender;
     private String user_profile;
-    private Integer user_point;
+    private String user_type;
 }

@@ -20,10 +20,12 @@ public interface OrderDao {
     Order get_order_by_id(String id);
     Order[] get_orders_today();
     String[] get_orders_id_by_user_id(int id);
+    String[] get_orders_id_for_user_id(int id);
 
     int save_order(Order order);
     int delete_order(String id);
     int receive_order(String id);
 
     int change_order_state_by_order_id(String id, String state);
+    int update_order_all(Order order);
 }

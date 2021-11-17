@@ -1,13 +1,16 @@
 package com.chuhelan.htg.service.impl;
 
 import com.chuhelan.htg.beans.Order;
+import com.chuhelan.htg.beans.UserInfo;
 import com.chuhelan.htg.dao.OrderDao;
+import com.chuhelan.htg.dao.UserDao;
 import com.chuhelan.htg.service.OrderService;
 import com.chuhelan.htg.util.http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @Version: 1.0
@@ -23,6 +26,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderDao orderDao;
 
+    @Autowired
+    UserDao userDao;
+
 
     @Override
     public Order get_order_by_id(String id) {
@@ -36,7 +42,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String[] get_orders_id_by_user_id(int id) {
-        return orderDao.get_orders_id_by_user_id(id);
+        // 判断用户类型
+        UserInfo info = userDao.get_user_more_by_id(id);
+        if(info.getUser_type().equals("快递员用户")) {
+            return orderDao.get_orders_id_for_user_id(id);
+        } else {
+            return orderDao.get_orders_id_by_user_id(id);
+        }
     }
 
     @Override
@@ -57,6 +69,24 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void receive_order(String id) {
         orderDao.receive_order(id);
+    }
+
+    @Override
+    public void next_order(String id) {
+        Order order = orderDao.get_order_by_id(id);
+        switch (order.getOrder_status()) {
+            case "未发货": {
+                order.setOrder_status("运输中");
+                order.setOrder_send_date(new Date());
+                break;
+            }
+            case "运输中": {
+                order.setOrder_status("未签收");
+                order.setOrder_end_date(new Date());
+                break;
+            }
+        }
+        orderDao.update_order_all(order);
     }
 
     @Override
@@ -102,6 +132,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean is_its_order(String id, int user_id) {
         Order info = orderDao.get_order_by_id(id);
-        return info.getOrder_user_id() == user_id;
+        return info.getOrder_user_id() == user_id || info.getOrder_sender_id() == user_id;
     }
 }

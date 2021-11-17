@@ -15,10 +15,12 @@ public class BaseInfo {
     String pic_link;
     String first_name;
     String last_name;
+    String type;
 
-    public BaseInfo(String user_profile, String s, String s1) {
+    public BaseInfo(String user_profile, String s, String s1, String s2) {
         pic_link = user_profile;
         first_name = s;
         last_name = s1;
+        type = s2;
     }
 }
