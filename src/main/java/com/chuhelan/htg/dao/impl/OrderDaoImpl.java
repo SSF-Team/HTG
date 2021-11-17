@@ -34,6 +34,16 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
+    public int delete_order(String id) {
+        return 0;
+    }
+
+    @Override
+    public int receive_order(String id) {
+        return 0;
+    }
+
+    @Override
     public int change_order_state_by_order_id(String id, String state) {
         return 0;
     }

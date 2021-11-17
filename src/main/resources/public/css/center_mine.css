@@ -27,12 +27,36 @@ i {
     backdrop-filter: blur(4px);
 }
 .pop > div {
-    width: 50%;
-    min-height: 300px;
+    width: 40%;
     background: #fff;
     -moz-box-shadow: 0 0 10px #dfdfdf5c;
     -webkit-box-shadow: 0 0 10px #dfdfdf5c;
     box-shadow: 0 0 10px #dfdfdf5c;
     border-radius: 7px;
     pointer-events: all;
+    min-height: 250px;
+    padding: 20px;
+}
+.pop > div header {
+    color: #bb0000;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.pop > div button {
+    min-width: 150px;
+    height: 40px;
+    border-radius: 40px;
+    border: 0;
+    background: #ffe061;
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+.close-button {
+    min-width: auto !important;
+    background: transparent !important;
+    float: right;
+    margin-top: -25px !important;
+    width: 30px;
+    height: 30px !important;
 }

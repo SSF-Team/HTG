@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
-import java.util.Date;
 
 /**
  * @Version: 1.0
@@ -41,13 +40,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int save_order(Order order) {
-        return orderDao.save_order(order);
+    public void save_order(Order order) {
+        orderDao.save_order(order);
     }
 
     @Override
-    public int change_state(String id, String state) {
-        return orderDao.change_order_state_by_order_id(id, state);
+    public void delete_order(String id) {
+        orderDao.delete_order(id);
+    }
+
+    @Override
+    public void change_state(String id, String state) {
+        orderDao.change_order_state_by_order_id(id, state);
+    }
+
+    @Override
+    public void receive_order(String id) {
+        orderDao.receive_order(id);
     }
 
     @Override
