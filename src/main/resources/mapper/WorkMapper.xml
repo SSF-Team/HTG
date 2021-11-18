@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chuhelan.htg.dao.WorkDao">
+    <insert id="new_work" parameterType="com.chuhelan.htg.beans.Work">
+        insert into htg_work (work_crater_id, work_order_id, work_title, work_content)
+        values (#{work_crater_id}, #{work_order_id}, #{work_title}, #{work_content});
+    </insert>
+    <select id="get_works" resultType="com.chuhelan.htg.beans.Work">
+        select * from htg_work where work_crater_id=#{id};
+    </select>
+    <select id="get_all_works" resultType="com.chuhelan.htg.beans.Work">
+        select * from htg_work
+    </select>
+    <update id="reply_work">
+        update htg_work set work_server_id=#{uid}, work_back=#{str} where work_id=#{id};
+    </update>
+</mapper>

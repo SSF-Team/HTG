@@ -51,8 +51,6 @@ fetch('/info/base/' + id)
             remove_dom(document.getElementById('list_search'))
         }
         if(data.type === '客服用户') {
-            remove_dom(document.getElementById('list_send'))
-            remove_dom(document.getElementById('list_search'))
             remove_dom(document.getElementById('list_orders'))
         }
     })

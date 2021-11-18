@@ -174,18 +174,58 @@
         <div style="clear: both;display: block;"></div>
     </div>
     <div class="main-card ss-card card-1">
-        <div class="card2-1">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">提交工单</a><br>
+        <div class="card2-1" id="send-work">
+            <a class="title" style="font-size: 1.1rem;margin-left: 0;">提交工单</a>
+            <div class="alert alert-primary" role="alert" style="margin-top: 10px;">
+                您可以在此处提交工单，如果您想要针对某个订单提交，请填写“运单编号”条目，否则留空它。
+            </div>
+            <form onsubmit="new_work();return false;">
+                <div class="alert alert-danger" role="alert" id="word-err-alert" style="display: none;"></div>
+                <i>运单编号<br><input id="work_order"></i><br>
+                <i>* 工单标题<br><input id="work_title"></i><br>
+                <i>工单内容<br><textarea id="work_input"></textarea></i>
+                <button type="submit">提交</button>
+                <div style="clear: both;display: block;"></div>
+            </form>
         </div>
-        <div class="card2-2">
-            <a class="title" style="font-size: 1.1rem;margin-left: 0;">未完成快件</a><br>
+        <div class="card2-2" id="work-list">
+            <a id="gd-title" class="title" style="font-size: 1.1rem;margin-left: 0;">我的工单</a><br>
         </div>
         <div style="clear: both;display: block;"></div>
     </div>
-
 </div>
 
+<div class="pop" id="workDefUser" style="display: none">
+    <div>
+        <header>工单详情</header>
+        <button data-name="workDefUser" class="close-button" onclick="close_pop(this);">
+            <svg style="width: 15px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+        </button>
+        <div style="text-align: center;" class="work-info">
+            <header id="def-work-title"></header>
+            <i id="def-work-main"></i>
+        </div>
+        <div class="alert alert-primary" id="def-work-back" role="alert" style="margin-top: 20px;font-size: 0.9rem;"></div>
+    </div>
+</div>
 
+<div class="pop" id="workSevUser" style="display: none">
+    <div>
+        <header>工单详情</header>
+        <button data-name="workSevUser" class="close-button" onclick="close_pop(this);">
+            <svg style="width: 15px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+        </button>
+        <div style="text-align: center;" class="work-info">
+            <header id="def-work-title-sev"></header>
+            <i id="def-work-main-sev"></i>
+        </div>
+        <form onsubmit="back_work();return false;" class="back_work">
+            <i>回复工单</i>
+            <textarea id="back-work-info"></textarea>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
