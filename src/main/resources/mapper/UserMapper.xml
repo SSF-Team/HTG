@@ -8,6 +8,9 @@
         insert into htg_user (user_last_name, user_first_name, user_email, user_password, user_phone)
         values (#{user_last_name}, #{user_first_name}, #{user_email}, #{user_password}, #{user_phone})
     </insert>
+    <insert id="new_user_info_by_user_id">
+        insert into htg_user_info (user_id) values (#{id});
+    </insert>
     <update id="save_user_token_by_id">
         update htg_user set user_session=#{token} where user_id=#{id}
     </update>

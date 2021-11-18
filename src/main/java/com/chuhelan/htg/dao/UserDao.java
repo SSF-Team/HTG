@@ -26,4 +26,5 @@ public interface UserDao {
 
     int save_user_token_by_id(int id, String token);
     int save_user_token_die_time_by_id(int id, Date date);
+    int new_user_info_by_user_id(int id);
 }

@@ -46,4 +46,9 @@ public class UserDaoImpl implements UserDao {
     public int save_user_token_die_time_by_id(int id, Date date) {
         return 0;
     }
+
+    @Override
+    public int new_user_info_by_user_id(int id) {
+        return 0;
+    }
 }

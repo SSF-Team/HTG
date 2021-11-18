@@ -32,6 +32,10 @@ public class UserServiceImpl implements UserService {
             }
         }
         userDao.register_user_by_userinfo(u);
+        // 获取用户 ID
+        u = userDao.get_userinfo_by_mail(u.getUser_email());
+        // 初始化 info 表
+        userDao.new_user_info_by_user_id(u.getUser_id());
         return 200;
     }
 
